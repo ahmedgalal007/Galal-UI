@@ -1,0 +1,10 @@
+<div class="dropdown selection-list"  Dropdown [isClickable]="true" >
+  <div class="dropdown-toggle btn btn-default btn-sm"  role="button" aria-haspopup="true" aria-expanded="false">{{data.label}} <span class="{{data.glyphicon}}"></span></div>
+  <ul class="dropdown-menu btn-toolbar"  role="toolbar" style="min-width:20px;text-align: center;" >
+    <li class="btn-group-vertical" role="group" *ngFor="let val of data.list">
+
+      <a class="btn btn-default btn-sm"  role="button"  (click)="onClick(val)">{{val}}</a>
+
+    </li>
+  </ul>
+</div>

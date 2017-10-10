@@ -1,0 +1,14 @@
+<div class="btn-group btn-group-sm" #Dropdown Dropdown [isClickable]="true" >
+  <button  type="button" class="btn btn-danger">{{data.label}}</button>
+  <button  type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu {{data.classes}}"  style="left:auto;">
+    <li *ngFor="let option of data.options">
+      <a (click)="onClick(option)">{{option}}</a>
+    </li>
+    <li role="separator" class="divider"></li>
+    <li ><a >Separated link</a></li>
+  </ul>
+</div>

@@ -1,0 +1,39 @@
+.selected{
+  border:solid #4CAF50 1px;
+  float:left;
+  margin:2px;
+  padding:2px 15px;
+}
+
+.selected a{
+  /*cursor:pointer;*/
+  font-weight:bold;
+  width:100%;
+}
+.suggestions ul{
+  list-style: none;
+  padding: 0;
+  position: fixed;
+}
+/*.suggestions{
+  position: fixed;
+  background-color: white;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+.suggestions ul{
+  list-style: none;
+  padding: 0;
+  width:100%
+}
+.suggestions ul li{
+
+  cursor: hand;
+}
+.suggestions ul li a{
+  width:100%;
+  cursor:hand;
+}
+*/

@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+    <!--<div style="position: absolute; top:5px; right:10px; width:20px; height:20px; text-align:center;  border-radius: 50%; background: red; border-shadow: 1 1 5 gray;">x</div>-->
+    <button (click)="closeDialog()" class="btn btn-default btn-sm " style="position: absolute; top:5px; right:10px; float:right; color:darkred"><i class="glyphicon glyphicon-off" ></i></button>
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <form method="" action="">
+        <div class="row" *ngFor="let input of inputs">
+         <!--{{_buildInputFactory.build(input)}}-->
+
+          <input *ngIf="input.tag == 'input'" type="{{input.type}}" value="{{input.value}}" name="{{input.name}}" class="{{input.classes}}" />
+          <galal-ui-autocomplete *ngIf="input.tag == 'autocomplete'" [multiSelect]="input.multiselect"></galal-ui-autocomplete>
+        </div>
+      </form>
+      <div class="row">
+        <div> <h1>Ahmed Popup Form {{context.answer}}</h1></div>
+        <button (click)="closeDialog()">close</button>
+      </div>
+    </div>
+  </div>
+</div>

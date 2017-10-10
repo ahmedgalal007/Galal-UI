@@ -1,0 +1,8 @@
+.color-btn{
+  width:20px;
+  height:20px;padding:3px;
+}
+.color-picker .dropdown-menu.width-400{width:400px;}
+.color-picker .dropdown-menu.width-340{width:340px;}
+.color-picker > ul{text-align: center;}
+

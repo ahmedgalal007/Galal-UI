@@ -1,0 +1,24 @@
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <button class="btn btn-success" [routerLink]="['new']">New Role</button>
+    </div>
+  </div>
+
+  <div class="col-lg-6 ">
+    <div class="input-group pull-right">
+      <input type="text" class="form-control" placeholder="Search for..." #search>
+      <span class="input-group-btn">
+          <button class="btn btn-default" type="button" (click)="onSearch(search.value)">Go!</button>
+        </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-role-item *ngFor="let item of roles; let i=index" [role]="item" (click)="onSelect(item)"></app-role-item>
+  </div>
+</div>

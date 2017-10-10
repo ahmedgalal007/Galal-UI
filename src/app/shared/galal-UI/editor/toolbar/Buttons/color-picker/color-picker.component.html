@@ -1,0 +1,14 @@
+
+<div class="dropdown color-picker"  Dropdown [isClickable]="true" >
+  <div   class="dropdown-toggle btn btn-default btn-sm"   role="button" aria-haspopup="true" aria-expanded="false">{{data.label}} <span class="{{data.glyphicon}}"></span></div>
+  <ul class="dropdown-menu {{data.classes}}" >
+    <li class="btn-group" *ngFor="let color of data.colors">
+
+      <a class="btn-default color-btn"  role="button"  (click)="onClick(color)"  [style.background-color]="color"></a>
+
+    </li>
+    <li role="separator" class="divider"></li>
+    <li><a >Separated link</a></li>
+  </ul>
+</div>
+

@@ -1,0 +1,37 @@
+<div class="dropdown selection-list"  Dropdown [isClickable]="true" >
+  <div class="dropdown-toggle btn btn-default btn-sm"  role="button" aria-haspopup="true" aria-expanded="false">{{data.label}} <span class="{{data.glyphicon}}"></span></div>
+  <div #matrix class="dropdown-menu btn-toolbar"  role="toolbar" style="text-align: center;" [style.width]="((cols.length ) * 24) + 2 + 'px'" >
+    <ul style="list-style: none; padding: 0;">
+      <li >
+        <table cellspacing="1" cellpadding="1" class="">
+          <tr  *ngFor="let row of rows; let i = index" >
+            <td  *ngFor="let col of cols;let j = index" >
+              <a class="btn btn-default btn-sm"
+                 style="width:20px;height:20px; padding: 5px; margin:2px;"
+                 [attr.data-row]="i" [attr.data-col]="j"
+                 role="button"
+                 (mouseover)="onMouseOver({'Row':row,'Col':col})"
+                 (click)="onClick({'Row':i+1,'Col':j+1})">
+              </a>
+            </td>
+          </tr>
+        </table>
+      </li>
+      <li  class="">
+        <div class="row">
+          <div class="col-xs-6">
+            Cols
+          </div>
+          <div class="col-xs-6">
+            Rows
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <a class="btn btn-danger btn-block"> Create </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

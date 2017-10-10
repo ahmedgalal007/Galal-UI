@@ -1,0 +1,13 @@
+{
+  "name":"insertHTML",
+  "type":1,
+  "glyphicon":"fa fa-html5",
+  "args":{
+    "classes":"width-340",
+    "value":"",
+    "label":"",
+    "inputs":[
+      {"tagName":"textarea", "type":"","Attrs":{"cols":"40","placeholder":"HTML here...", "rows":3, "class":"form-control"}}
+    ]
+  }
+},

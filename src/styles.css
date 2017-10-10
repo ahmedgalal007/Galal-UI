@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+.modal.in .modal-dialog {
+  width: 90%;
+  overflow: auto;
+}
+.modal.fade .modal-dialog {
+  width: 90%;
+  overflow: auto;
+}
+
+.modal-open .modal-dialog {
+  width: 90%;
+  overflow: auto;
+}

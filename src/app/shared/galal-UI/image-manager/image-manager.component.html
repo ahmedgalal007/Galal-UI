@@ -1,0 +1,29 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Num1 = {{context.num1}}</h3>
+          <h3>Num2 = {{context.num2}}</h3>
+          <h1>Answer = {{!wrongAnswer}}</h1>
+          <hr>
+          <input type="text" class="form-control" (keyup)="onKeyUp(result.value)" #result>
+          <!--<galal-ui-editor-toolbar></galal-ui-editor-toolbar>-->
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <galal-ui-editor></galal-ui-editor>
+        </div>
+      </div>
+      <button (click)="closeDilode()">Close</button>
+    </div>
+
+  </div>
+</div>
+

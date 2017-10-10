@@ -1,0 +1,36 @@
+<form [formGroup]="userForm" (submit)="onSubmit()" >
+  <div class="row">
+    <div class="col-xs-12">
+      <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Save</button>
+      <button type="button" class="btn btn-danger" [routerLink]="['../']">Cancel</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" class="form-control" id="userName" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="Email">E-Mail</label>
+        <input type="text" class="form-control" id="Email" formControlName="email">
+      </div>
+      <div formArrayName="roles">
+        <h3>User Roles</h3>
+        <hr>
+        <div class="form-group"  *ngFor="let role of getFormGroupCtl('roles'); let i=index">
+          <input type="text" class="form-control" formControlName="{{i}}">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-success" (click)="onAddRole()">+</button>
+          <button type="button" class="btn btn-danger" [routerLink]="['../']">-</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

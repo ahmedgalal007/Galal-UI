@@ -1,0 +1,161 @@
+{
+  "rtl":true,
+  "toolbars":[
+    {
+      "name": "Main",
+      "active":true,
+      "rtl":true,
+      "BtnRTL":true,
+      "buttons":[
+        { "component":"CompoboxComponent",
+          "data":{
+            "command":"FontName",
+            "glyphicon":"glyphicon glyphicon-text-size",
+            "value":null,
+            "label":"Font",
+            "options":["verdana", "Arial"]
+          }
+        },
+        { "component":"ColorPickerComponent",
+          "data":{
+            "command":"ForeColor",
+            "value":null,
+            "glyphicon":"glyphicon glyphicon-text-color",
+            "classes":"width-340",
+            "colors":[
+              "#ff1744","#F50057","#D500F9","#651FFF","#3D5AFE","#2979FF","#00B0FF","#00E5FF",
+              "#1DE9B6","#00E676","#76FF03","#C6FF00","#FFEA00","#FFC400","#FF9100","#FF3D00",
+              "#ff8a80","#FF80AB","#EA80FC","#B388FF","#8C9EFF","#82B1FF","#80D8FF","#84FFFF",
+              "#A7FFEB","#B9F6CA","#CCFF90","#F4FF81","#FFFF8D","#FFE57F","#FFD180","#FF9E80",
+              "#ff5252","#FF4081","#E040FB","#7C4DFF","#536DFE","#448AFF","#40C4FF","#18FFFF",
+              "#64FFDA","#69F0AE","#B2FF59","#EEFF41","#FFFF00","#FFD740","#FFAB40","#FF6E40",
+              "#ff1744","#F50057","#D500F9","#651FFF","#3D5AFE","#2979FF","#00B0FF","#00E5FF",
+              "#1DE9B6","#00E676","#76FF03","#C6FF00","#FFEA00","#FFC400","#FF9100","#FF3D00",
+              "#d50000","#C51162","#AA00FF","#6200EA","#304FFE","#2962FF","#0091EA","#00B8D4",
+              "#00BFA5","#00C853","#64DD17","#AEEA00","#FFD600","#FFAB00","#FF6D00","#DD2C00"
+            ]
+          }
+        },
+
+        { "component":"SelectionListComponent",
+          "data":{
+            "command":"FontSize",
+            "value":null,
+            "glyphicon":"glyphicon glyphicon-text-size",
+            "list":[1,2,3,4,5,6,7]
+          }
+        },
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"bold",
+            "value":null,
+            "glyphicon":"glyphicon glyphicon-bold"
+          }
+        },
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"italic",
+            "value":null,
+            "glyphicon":"glyphicon glyphicon-italic"
+          }
+        },
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"underline",
+            "value":null,
+            "glyphicon":"fa fa-underline"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Font",
+      "active":true,
+      "rtl":true,
+      "BtnRTL":false,
+      "buttons":[
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"justifyLeft",
+            "value":null,
+            "glyphicon":"fa fa-align-left"
+          }
+        },
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"justifyCenter",
+            "value":null,
+            "glyphicon":"fa fa-align-center"
+          }
+        },
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"justifyRight",
+            "value":null,
+            "glyphicon":"fa fa-align-right"
+          }
+        },
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"justifyFull",
+            "value":null,
+            "glyphicon":"fa fa-align-justify"
+          }
+        },
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"indent",
+            "value":null,
+            "glyphicon":"fa fa-indent"
+          }
+        },
+        { "component":"ToolbarButtonComponent",
+          "data":{
+            "command":"outdent",
+            "value":null,
+            "glyphicon":"fa fa-outdent"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Table",
+      "active":true,
+      "rtl":true,
+      "BtnRTL":false,
+      "buttons":[
+        { "component":"GridPickerComponent",
+          "data":{
+            "command":"Custom",
+            "value":null,
+            "glyphicon":"fa fa-play",
+            "callback":"function(){alert('Hi Custom, Rows ' + arguments[0] + ' , Cols ' + arguments[1]); console.log(this.getSelection());}",
+            "callbackArgs":""
+          }
+        },
+        { "component":"PopupFormComponent",
+          "data":{
+            "command":"Custom",
+            "value":null,
+            "form":{
+              "inputs":[
+                {
+                  "name":"input01",
+                  "type":"text",
+                  "label":"",
+                  "value":"555",
+                  "classes":"form-control",
+                  "behaviors":{}
+                }
+              ],
+              "submit":{}
+            },
+            "glyphicon":"fa fa-edit",
+            "callback":"function(){alert('Hi Custom, Rows ' + arguments[0] + ' , Cols ' + arguments[1]); console.log(this.getSelection());}",
+            "callbackArgs":""
+          }
+        }
+      ]
+    }
+  ]
+}

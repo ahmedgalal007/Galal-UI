@@ -1,0 +1,49 @@
+<div class="ng-editor container">
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="toolbar-container toolbar-rtl" >
+        <!--<div galal-ui-editor-toolbar-->
+            <!--#toolbarVC-->
+            <!--*ngFor="let bar of toolbars"-->
+             <!--[toolbarConfig]="bar">-->
+        <!--</div>-->
+        <bar-buttons #toolbarVC *ngFor="let bar of toolbars" [bar]="bar"></bar-buttons>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10">
+      <!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it -->
+      <textarea style="display:none;" name="myTextArea" id="myTextArea" cols="50" rows="8"></textarea>
+      <iframe class="" name="richTextField" #richTextField (load)="enableDesignMode()" style="direction:rtl;border:#000000 1px solid; width:100%; height:300px;">
+        <table>
+          <thead>
+            <tr>
+              <td>head 1</td>
+              <td>head 2</td>
+              <td>head 3</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>data 1</td>
+              <td>data 2</td>
+              <td>data 3</td>
+            </tr>
+            <tr>
+              <td>data 4</td>
+              <td>data 5</td>
+              <td>data 6</td>
+            </tr>
+          </tbody>
+        </table>
+      </iframe>
+      <!-- End replacing your normal textarea -->
+    </div>
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-default btn-block" (click)="getHTML()">HTML</button>
+    </div>
+  </div>
+</div>
+

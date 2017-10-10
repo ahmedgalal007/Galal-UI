@@ -1,0 +1,75 @@
+
+<ul class="editor-toolbar {{rtl?'toolbar-rtl':'toolbar-ltr'}} {{BtnRTL?'':'rvBtnRTL'}}" >
+  <li *ngFor="let Btn of buttons" >
+    <galal-ui-editor-button
+      *ngIf="Btn.type == enumToolbarButtonType.Button"
+      [name]="Btn.name"
+      [type]="Btn.type"
+      [args]="Btn.args"
+      [glyphicon]="Btn.glyphicon"
+      (btnClicked)="onBtnClicked(Btn)" >
+    </galal-ui-editor-button>
+<!--colorPicker-->
+    <div class="dropdown color-picker"  Dropdown [isClickable]="true" *ngIf="Btn.type == enumToolbarButtonType.ColorPicker">
+      <div   class="dropdown-toggle btn btn-default btn-sm"   role="button" aria-haspopup="true" aria-expanded="false">{{Btn.args?.label}} <span class="{{Btn.glyphicon}}"></span></div>
+      <ul class="dropdown-menu {{Btn.args.classes}}" >
+        <li class="btn-group" *ngFor="let option of Btn.args.options">
+
+          <a class="btn-default color-btn"  role="button"  (click)=" Btn.args['value'] = option;onBtnClicked(Btn);"   [style.background-color]="option"></a>
+
+        </li>
+        <li role="separator" class="divider"></li>
+        <li><a >Separated link</a></li>
+      </ul>
+    </div>
+<!--SelectionList-->
+    <div class="dropdown selection-list"  Dropdown [isClickable]="true" *ngIf="Btn.type == enumToolbarButtonType.SelectionList">
+      <div class="dropdown-toggle btn btn-default btn-sm"  role="button" aria-haspopup="true" aria-expanded="false">{{Btn.args?.label}} <span class="{{Btn.glyphicon}}"></span></div>
+      <ul class="dropdown-menu btn-toolbar"  role="toolbar" style="min-width:20px;text-align: center;" >
+        <li class="btn-group-vertical" role="group" *ngFor="let option of Btn.args.options">
+
+          <a class="btn btn-default btn-sm"  role="button"  (click)="Btn.args['value'] = option;onBtnClicked(Btn);">{{option}}</a>
+
+        </li>
+      </ul>
+    </div>
+<!--DropDown-->
+    <div class="btn-group btn-group-sm" #Dropdown Dropdown [isClickable]="true"  *ngIf="Btn.type == enumToolbarButtonType.DropDown">
+      <button *ngIf="Btn.args?.options"  type="button" class="btn btn-danger">{{Btn.args?.label}}</button>
+      <button *ngIf="Btn.args?.options"   type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div *ngIf="Btn.args?.inputs"  class="dropdown-toggle btn btn-default btn-sm"  role="button" aria-haspopup="true" aria-expanded="false">{{Btn.args?.label}} <span class="{{Btn.glyphicon}}"></span></div>
+      <ul class="dropdown-menu {{Btn.args.classes}}"  style="left:auto;">
+        <li *ngFor="let option of Btn.args.options"><a (click)=" Btn.args['value'] = option;onBtnClicked(Btn);">{{option}}</a></li>
+        <li *ngIf="Btn.args.options" role="separator" class="divider"></li>
+        <li *ngIf="Btn.args.options"><a >Separated link</a></li>
+        <li *ngIf="Btn.args['inputs']" (load)="loadInputAttrs()">
+          <div class="input-group">
+
+            <div  #dropdownInput *ngFor="let inpt of Btn.args['inputs']" >
+              <textarea #formValue class="dropdown-input"  *ngIf="inpt.tagName == 'textarea'"
+                        [attr.all]="JSON.stringify(inpt.Attrs)"
+                        (change)="Btn.args['value']=formValue.value"
+                         ></textarea>
+              <input #formValue (change)="Btn.args['value']=formValue.value"  class="dropdown-input"  *ngIf="inpt.tagName == 'input'" />
+            </div>
+            <span class="input-group-btn">
+              <button
+                (click)="onBtnClicked(Btn)"
+                class="btn btn-default" type="button">Go!</button>
+            </span>
+              <!--{{JSON.stringify(Btn.args['input'].Attrs).substr(1,JSON.stringify(Btn.args['input'].Attrs).length-2).replace(':',"=") }}-->
+
+          </div><!-- /input-group -->
+        </li>
+      </ul>
+    </div>
+
+  </li>
+
+</ul>
+
+
+
