@@ -18,7 +18,7 @@ export class EditorHelper {
 
   public addListeners(){
     let that = this.editor;
-    that.contextMenu = that.ownerDocument.getElementsByClassName("context-menu")[0] as HTMLElement;
+    that.contextMenu = that.DOM.getElementsByClassName("context-menu")[0] as HTMLElement;
 
     this.editor.DOM.addEventListener("click",function (event) {
       _changeSelection(event);
@@ -57,9 +57,9 @@ export class EditorHelper {
     let _createContext = (ev) => {
 
 
-      if(that.ownerDocument.getElementsByClassName("context-menu").length == 0 ){
-        that.contextMenu;
-        that.contextMenu = that.ownerDocument.createElement("nav");
+      if(that.DOM.getElementsByClassName("context-menu").length == 0 ){
+
+        that.contextMenu = that.DOM.createElement("nav");
         that.contextMenu.setAttribute("class", that.contextMenu.getAttribute("class")? that.contextMenu.getAttribute("class") + " context-menu": "context-menu");
         that.contextMenu.setAttribute("contenteditable", "false");
         that.DOM.body.appendChild(that.contextMenu);
