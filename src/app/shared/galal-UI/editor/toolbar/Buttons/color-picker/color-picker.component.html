@@ -8,6 +8,11 @@
 
     </li>
     <li role="separator" class="divider"></li>
+    <li class="btn-group" *ngFor="let mainColor of data.mainColors">
+
+      <a class="btn-default color-btn"  role="button"  (click)="onClick(mainColor)"  [style.background-color]="mainColor"></a>
+
+    </li>
     <li><a >Separated link</a></li>
   </ul>
 </div>

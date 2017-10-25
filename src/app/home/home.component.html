@@ -2,9 +2,11 @@
   home works!
 </p>
 <hr>
-<galal-ui-autocomplete [multiSelect]="true"></galal-ui-autocomplete>
+<galal-ui-autocomplete [multiSelect]="true" [searchURL]="'http://localhost:50511/api/Autocomplete'" ></galal-ui-autocomplete>
 <hr>
 <button class="btn btn-danger" (click)="openModal()">Alert</button>
 <p>{{overlayConfig?.context['answer']}}</p>
+<hr />
+<app-file-manager></app-file-manager>
 
 

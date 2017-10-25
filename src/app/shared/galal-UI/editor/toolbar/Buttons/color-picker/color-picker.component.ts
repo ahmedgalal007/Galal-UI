@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
-import {iButton} from "../iButton";
-//import {BtnItem} from "../BtnItem.component";
+import {iButton} from '../iButton';
+// import {BtnItem} from '../BtnItem.component';
 
 @Component({
   selector: 'li[color-picker]',

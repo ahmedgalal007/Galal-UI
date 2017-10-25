@@ -1,0 +1,15 @@
+<ul class="border-left">
+  <li >
+    <a (click)="expand()"><i class="glyphicon" [class.glyphicon-minus]="thisNode.expanded" [class.glyphicon-plus]="!thisNode.expanded" ></i></a>
+    <a (click)="open()"><i class="glyphicon tree-node-icon"
+             [class.glyphicon-folder-close]="!thisNode.expanded"
+             [class.glyphicon-folder-open]="thisNode.expanded">
+  </i>{{thisNode.name}}</a></li>
+  <ul *ngIf="thisNode.childrens.length > 0">
+    <li *ngFor="let node of thisNode.childrens; let i = index">
+      <app-tree-view-folder *ngIf="node.nodeType == 'Folder'" [thisNode]="node"></app-tree-view-folder>
+      <app-tree-view-file *ngIf="node.nodeType == 'File'" [thisNode]="node"></app-tree-view-file>
+    </li>
+  </ul>
+</ul>
+

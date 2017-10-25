@@ -1,5 +1,5 @@
 import {Component, Output, Input, EventEmitter} from '@angular/core';
-import {iButton} from "../iButton";
+import {iButton} from '../iButton';
 @Component({
   selector: 'li[toolbar-button]',
   template: `

@@ -5,19 +5,21 @@
     <button (click)="closeDialog()" class="btn btn-default btn-sm " style="position: absolute; top:5px; right:10px; float:right; color:darkred"><i class="glyphicon glyphicon-off" ></i></button>
   </div>
   <div class="panel-body">
-    <div class="container">
-      <form method="" action="">
-        <div class="row" *ngFor="let input of inputs">
-         <!--{{_buildInputFactory.build(input)}}-->
+    <div class="">
+      <form method="" action="" #myForm="ngForm">
 
-          <input *ngIf="input.tag == 'input'" type="{{input.type}}" value="{{input.value}}" name="{{input.name}}" class="{{input.classes}}" />
-          <galal-ui-autocomplete *ngIf="input.tag == 'autocomplete'" [multiSelect]="input.multiselect"></galal-ui-autocomplete>
+        <div *ngFor="let input of inputs"  class="form-group">
+          <label *ngIf="input.label" style="color:red; font-weight: normal" >{{ input.label }}</label>
+          <input *ngIf="input.tag == 'input'" type="{{input.type}}" value="{{input.value}}" name="{{input.name}}" class="{{ input.classes }}"  ngModel="{{input.value}}"/>
+          <galal-ui-autocomplete *ngIf="input.tag == 'autocomplete'" [name]="input.name" [multiSelect]="input.multiselect" [searchURL]="input.searchURL"  [blurFn]="onChange.bind(this)" ></galal-ui-autocomplete>
         </div>
+
+        <div class="form-group">
+
+          <button class="btn btn-danger btn-block" (click)="closeDialog(myForm)">close</button>
+        </div>
+
       </form>
-      <div class="row">
-        <div> <h1>Ahmed Popup Form {{context.answer}}</h1></div>
-        <button (click)="closeDialog()">close</button>
-      </div>
     </div>
   </div>
 </div>

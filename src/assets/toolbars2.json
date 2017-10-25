@@ -22,7 +22,8 @@
             "value":null,
             "glyphicon":"glyphicon glyphicon-text-color",
             "classes":"width-340",
-            "colors":[
+            "mainColors": ["#ffffff", "#999999", "#666666", "#333333", "#000000"],
+            "colors": [
               "#ff1744","#F50057","#D500F9","#651FFF","#3D5AFE","#2979FF","#00B0FF","#00E5FF",
               "#1DE9B6","#00E676","#76FF03","#C6FF00","#FFEA00","#FFC400","#FF9100","#FF3D00",
               "#ff8a80","#FF80AB","#EA80FC","#B388FF","#8C9EFF","#82B1FF","#80D8FF","#84FFFF",
@@ -143,26 +144,48 @@
                   "tag":"input",
                   "name":"input01",
                   "type":"text",
-                  "label":"",
+                  "label":"Text Item",
                   "value":"555",
                   "classes":"form-control",
                   "behaviors":{}
                 },
                 {
                   "tag":"autocomplete",
-                  "name":"input01",
+                  "name":"personLink",
                   "options":["opt1", "opt2", "opt3"],
-                  "multiselect":true,
+                  "multiselect":false,
+                  "searchURL": "http://localhost:50511/api/Autocomplete",
                   "label":"",
                   "value":"555",
                   "classes":"form-control",
+                  "behaviors":{}
+                },
+                {
+                  "tag":"input",
+                  "name":"input03",
+                  "type":"submit",
+                  "label":"",
+                  "value":"555",
+                  "classes":"btn btn-danger",
                   "behaviors":{}
                 }
               ],
               "submit":{}
             },
             "glyphicon":"fa fa-edit",
-            "callback":"function(){alert('Hi Custom, Rows ' + arguments[0] + ' , Cols ' + arguments[1]); console.log(this.getSelection());}",
+            "callback": [ "function(){ ",
+                              "let result; ",
+                              "let form = arguments[0]; ",
+                              "form.inputs.forEach( ",
+                                  "(input) => { ",
+                                        "if (input['name'] === 'personLink')  { ",
+                                              "result = input.value[0].url; ",
+                                        "} ",
+                                  "} ",
+                              ");  " ,
+                              "this.execCommand('CreateLink', false, result); ",
+                            "}"
+            ],
             "callbackArgs":""
           }
         }

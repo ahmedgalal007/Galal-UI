@@ -1,0 +1,19 @@
+
+.width-340{width:340px;}
+.editor-toolbar{padding:0px 10px;}
+.editor-toolbar ,.editor-toolbar > li{
+  display: inline-block;
+  list-style: none;
+  height: 25px;
+}
+.editor-toolbar.toolbar-rtl {padding-right: 0}
+.editor-toolbar.toolbar-ltr {padding-left: 0}
+.editor-toolbar.toolbar-ltr, .editor-toolbar.toolbar-ltr > li{float:left;}
+.editor-toolbar.toolbar-rtl, .editor-toolbar.toolbar-rtl > li{float:right;}
+.editor-toolbar.toolbar-rtl.rvBtnRTL > li{float:left;}
+.editor-toolbar.toolbar-rtl .dropdown-menu{left:auto !important; right:0}
+.editor-toolbar.toolbar-rtl .dropdown-menu>li>a{text-align: right;}
+
+.editor-toolbar > li {
+  cursor: hand;
+}

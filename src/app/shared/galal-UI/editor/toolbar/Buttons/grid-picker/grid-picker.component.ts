@@ -1,7 +1,7 @@
 import {Component, Output, EventEmitter, Input, ViewChild, ElementRef} from '@angular/core';
-import {iButton} from "../iButton";
-import {forEach} from "@angular/router/src/utils/collection";
-//import {by} from "protractor";
+import {iButton} from '../iButton';
+// import {forEach} from '@angular/router/src/utils/collection';
+// import {by} from 'protractor';
 
 @Component({
   selector: 'li[grid-picker]',
@@ -10,30 +10,31 @@ import {forEach} from "@angular/router/src/utils/collection";
 })
 export class GridPickerComponent extends iButton {
 
-  @ViewChild('matrix') matrix:ElementRef;
+  @ViewChild('matrix') matrix: ElementRef;
 
-  rows:number[] = [1,2,3,4];
-  cols:number[] = [1,2,3,4,5,6,7];
-  min = {"Rows":4, "Cols":7};
-  max = {"Rows":12, "Cols":12};
+  rows: number[] = [1, 2, 3, 4];
+  cols: number[] = [1, 2, 3, 4, 5, 6, 7];
+  min = {'Rows': 4, 'Cols': 7};
+  max = {'Rows': 12, 'Cols': 12};
 
   onClick(val){
     this.data.barButton = this;
     this.data.value = val;
     this.data.callbackArgs = [val.Row, val.Col];
-    eval( "this.data.callback = " + this.data.callback);
-
+    if (typeof this.data.callback !== 'function') {
+      eval('this.data.callback = ' + this.data.callback);
+    }
     console.log(this.data.callback);
     this.btnClicked.emit(this.data);
   }
 
   processResult(Editor){
-    //console.log(Editor);
-    let table = document.createElement('table');
-    for(var i=0; i< this.data.value.Row; i++){
-      let tr = document.createElement('tr');
-      for(var j=0; j< this.data.value.Col; j++){
-        let td = document.createElement('td');
+    // console.log(Editor);
+    const table = document.createElement('table');
+    for (let i = 0 ; i < this.data.value.Row; i++) {
+      const tr = document.createElement('tr');
+      for (let j = 0; j < this.data.value.Col; j++) {
+        const td = document.createElement('td');
         td.setAttribute('role', 'tableCell');
         tr.appendChild(td);
       }
@@ -42,14 +43,14 @@ export class GridPickerComponent extends iButton {
     // this.rows.forEach((row)=>{
     //   this.cols.forEach((col)=>{});
     // });
-    Editor.DOM.execCommand('insertHTML',null, table.outerHTML);
-    Editor.log(table.outerHTML,true);
+    Editor.DOM.execCommand('insertHTML', null, table.outerHTML);
+    Editor.log(table.outerHTML, true);
   }
-  //onLoad(cell:HTMLElement, data){
+  // onLoad(cell:HTMLElement, data){
     // let rowAttr = document.createAttribute("row");
     // rowAttr.value = data.Row;
     // cell.attributes.setNamedItem(rowAttr);
-  //}
+  // }
 
   onMouseOver(data){
     let anchrs:HTMLElement[] = this.matrix.nativeElement.getElementsByTagName("a");
