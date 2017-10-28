@@ -27,6 +27,8 @@ import { TreeViewComponent} from './tree-view/tree-view.component';
 import { BrowserViewComponent } from './browser-view/browser-view.component';
 import { TreeViewFolderComponent } from './tree-view/tree-view-folder.component';
 import { TreeViewFileComponent } from './tree-view/tree-view-file.component';
+import { BrowserViewItemComponent } from './browser-view-item/browser-view-item.component';
+import {FileIoService} from "./file-io.service";
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import { TreeViewFileComponent } from './tree-view/tree-view-file.component';
     BrowserViewComponent,
     TreeViewFolderComponent,
     TreeViewFileComponent,
+    BrowserViewItemComponent,
   ],
   imports: [
     CommonModule,
@@ -63,7 +66,9 @@ import { TreeViewFileComponent } from './tree-view/tree-view-file.component';
     EditorComponent, ImageManagerComponent, PopupFormComponent, PopupModalComponent, FileManagerComponent
   ],
   // EditorToolbarComponent, EditorButtonComponent,
-  providers: [],
+  providers: [
+    FileIoService
+  ],
   entryComponents: [ImageManagerComponent, ToolbarButtonComponent, ColorPickerComponent,
     SelectionListComponent, CompoboxComponent, GridPickerComponent, PopupFormComponent, PopupModalComponent
   ],

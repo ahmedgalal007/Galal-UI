@@ -1,0 +1,13 @@
+<div class="row">
+  <div *ngIf="node.nodeType == 'Folder'; then TFolder else TFile" ></div>
+  <ng-template #TFolder>
+    <div class="col-sm-12 browser-item">
+      <i class="glyphicon glyphicon-folder-close center-block no-float"></i>
+    </div>
+  </ng-template>
+  <ng-template #TFile>
+    <div class="col-sm-12 browser-item">
+      <i class="glyphicon glyphicon-file center-block no-float"></i>
+    </div>
+  </ng-template>
+</div>

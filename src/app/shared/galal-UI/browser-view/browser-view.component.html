@@ -1,3 +1,10 @@
-<p>
-  browser-view works!
-</p>
+<div class="row browser-view">
+  <div class="col-sm-12 col-md-12">
+    <div *ngFor="let file of files; let i = index ">
+      <div class="col-md-{{12/rowCount}}">
+        <app-browser-view-item [node]="file"></app-browser-view-item>
+      </div>
+    </div>
+  </div>
+</div>
+
