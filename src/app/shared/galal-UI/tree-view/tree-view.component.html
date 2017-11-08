@@ -1,5 +1,7 @@
 <div class="row">
-  <div class="col-md-12 tree-view">
-    <app-tree-view-folder [thisNode]="rootTreeNode"></app-tree-view-folder>
+  <div  class="col-md-12 tree-view">
+    <ul *ngFor="let node of rootTreeNodes" class="border-left">
+      <app-tree-view-folder [treeView]="this" [thisNode]="node"></app-tree-view-folder>
+    </ul>
   </div>
 </div>

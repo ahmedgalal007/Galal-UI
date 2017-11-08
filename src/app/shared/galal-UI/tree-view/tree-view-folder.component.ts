@@ -1,6 +1,8 @@
+
 import {Component, Input, OnInit} from '@angular/core';
-import {TreeFolder, TreeNode} from './tree-view-nodes';
-import {FileIoService} from "../file-io.service";
+import {TreeFolder, TreeNode, TreeNodeType} from './tree-view-lib';
+import {FileIoService} from '../file-io.service';
+import {TreeViewComponent} from './tree-view.component';
 
 @Component({
   selector: 'app-tree-view-folder',
@@ -8,8 +10,10 @@ import {FileIoService} from "../file-io.service";
   styles: []
 })
 export class TreeViewFolderComponent {
-  @Input() thisNode: TreeFolder;
 
+  @Input() thisNode: TreeFolder;
+  @Input() treeView: TreeViewComponent;
+  TreeNodeType = TreeNodeType;
 
   constructor(private FIO: FileIoService) { }
 
@@ -28,8 +32,14 @@ export class TreeViewFolderComponent {
     }
   }
 
-  open() {
+  // open() {
     // emit the brower-view.component updateBrowser event
     // with thisNode after propagate it's children
+  // }
+
+  folderClicked() {
+    // emit the Tree-view.component to trigger the fileManager eFolderClicked event
+    // with thisNode after propagate it's children
+    this.treeView.eTreeFolderClicked.emit(this.thisNode);
   }
 }

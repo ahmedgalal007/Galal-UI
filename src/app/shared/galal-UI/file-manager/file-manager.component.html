@@ -1,6 +1,17 @@
 <div class="row">
-  <div class="col-md-12">Tool Bar</div>
+  <!--<ul class="file-manager-bar">-->
+    <!--<li><label class="btn btn-primary"><i class="glyphicon glyphicon-upload"></i>-->
+        <!--Browse <input type="file" hidden>-->
+    <!--</label></li>-->
+    <!--<li><button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button></li>-->
+  <!--</ul>-->
+  <!--<div style="clear:both;"></div>-->
+  <app-file-upload [uploadRoute]="'http://localhost:7000/api/files/UploadFiles'"
+                   [uploadDestinationFolder]="selectedFolder"
+  ></app-file-upload>
+
 </div>
+<div>{{this.FIO.getPath(this.currentTreeNode).join('/')}}</div>
 <div class="row">
   <div class="col-md-3"><app-tree-view [browsURL]="'/'" [fileManager]="this" ></app-tree-view></div>
   <div class="col-md-9"><app-browser-view [fileManager]="this" ></app-browser-view></div>

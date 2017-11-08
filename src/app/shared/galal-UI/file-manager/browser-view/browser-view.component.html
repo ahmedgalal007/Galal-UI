@@ -1,8 +1,8 @@
 <div class="row browser-view">
   <div class="col-sm-12 col-md-12">
-    <div *ngFor="let file of files; let i = index ">
+    <div *ngFor="let Node of Nodes; let i = index ">
       <div class="col-md-{{12/rowCount}}">
-        <app-browser-view-item [node]="file"></app-browser-view-item>
+        <app-browser-view-item [node]="Node" [browserView]="this"></app-browser-view-item>
       </div>
     </div>
   </div>

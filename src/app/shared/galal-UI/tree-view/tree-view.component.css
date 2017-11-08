@@ -10,7 +10,10 @@
   white-space: pre-wrap; /* Chrome */
   white-space: nowrap;
   word-wrap: break-word; /* IE */}
-.tree-view .margin-left-15 {margin-left: 35px; }
+.tree-view .margin-left-35 {margin-left: 35px; }
 .tree-view .border-left {border-left: solid 1px #ccc;}
 .tree-view > * > ul {  border-left: none;}
 .tree-view > * > ul > li { border-left: none; margin:0; }
+
+.tree-view-file {border-left:solid 1px #ccc; border-bottom:solid 1px #ccc; cursor: pointer;}
+.tree-view-folder {cursor: pointer;}

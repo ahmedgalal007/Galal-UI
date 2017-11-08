@@ -1,0 +1,11 @@
+
+.ng2-cropper-canvas {
+  width: 100%;
+  background: coral;
+}
+
+.text-overflow {
+  overflow: hidden;
+  white-space: nowrap; /* Don't forget this one */
+  text-overflow: ellipsis;
+}

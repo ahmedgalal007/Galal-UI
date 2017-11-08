@@ -1,8 +1,0 @@
-
-
-.browser-item {
-
-}
-.browser-item > i { width: 80%; font-size: 80px; color: #337ab7;}
-.browser-item.file {}
-.browser-item.folder {background: #337ab7}

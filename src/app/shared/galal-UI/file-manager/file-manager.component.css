@@ -1,0 +1,18 @@
+.file-manager-bar {
+  list-style: none;
+  display: inline-block;
+  float:left;
+  padding: 0;
+}
+.file-manager-bar:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.file-manager-bar > li {
+  float: left;
+}
+
+[hidden] {
+  display: none !important;
+}

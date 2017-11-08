@@ -17,7 +17,7 @@ export class GridPickerComponent extends iButton {
   min = {'Rows': 4, 'Cols': 7};
   max = {'Rows': 12, 'Cols': 12};
 
-  onClick(val){
+  onClick(val) {
     this.data.barButton = this;
     this.data.value = val;
     this.data.callbackArgs = [val.Row, val.Col];

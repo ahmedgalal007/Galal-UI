@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TreeNode} from './tree-view-nodes';
+import {TreeFile, TreeNode} from './tree-view-lib';
+import {TreeViewComponent} from './tree-view.component';
 
 @Component({
   selector: 'app-tree-view-file',
@@ -7,9 +8,10 @@ import {TreeNode} from './tree-view-nodes';
   styles: []
 })
 export class TreeViewFileComponent implements OnInit {
-  @Input() thisNode: TreeNode;
+  @Input() thisNode: TreeFile;
+  @Input() treeView: TreeViewComponent;
   opened = false;
-  ext;
+
   constructor() { }
 
   ngOnInit() {
@@ -17,5 +19,6 @@ export class TreeViewFileComponent implements OnInit {
 
   openFile() {
     this.opened = true;
+    this.treeView.eTreeFileClicked.emit(this.thisNode);
   }
 }

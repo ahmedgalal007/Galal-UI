@@ -1,0 +1,47 @@
+<div class="row">
+
+  <div class="col-md-8">
+    <!--<div class="file-upload">-->
+      <!--<span class="text">upload</span>-->
+      <!--<input id="custom-input" type="file" (change)="fileChangeListener($event)">-->
+    <!--</div>-->
+    <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+    <br>
+    <span class="result rounded" *ngIf="data.image" style="width:{{cropperSettings.croppedWidth}}px; height: {{cropperSettings.croppedHeight}}px;" >
+        <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+    </span>
+    <!--<div *ngIf="cropper.cropper">{{ cropper.cropper?.getCropBounds().left}} , {{ cropper.cropper?.getCropBounds().top }} ,-->
+      <!--{{ cropper.cropper?.getCropBounds().width}} , {{ cropper.cropper?.getCropBounds().height }}</div><br />-->
+    <!--<div *ngIf="cropper.cropper">{{ cropper.settings.height}} , {{ cropper.settings.width }} </div>-->
+
+  </div>
+
+  <div class="col-md-4">
+
+    <!--<select (change)="eFileListChange($event)" (load)="eFileListLoad($event)"  #fileList>-->
+      <!--<option *ngFor="let file of files; let  i = index;"   value="{{ i }}" >{{ file.name }}</option>-->
+    <!--</select>-->
+
+    <div class="list-group">
+      <a  class="list-group-item text-overflow"
+          *ngFor="let file of files; let  i = index;" tabindex="{{ i }}"
+          (click)="eFileListChange($event)"
+      >
+        {{ file.name }}
+      </a>
+    </div>
+    <div *ngFor="let AspectFileBound of selectedAspectFile?.aspectBounds; let j = index;" class="row" #AspectList>
+      <div class="col-md-12">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button tabindex="{{j}}" (click)="onBoundSelect($event)" class="btn btn-default">{{ AspectFileBound.Aspect }}</button>
+          </div>
+          <input (change)="eInputChange($event)" type="text" class="form-control" aria-label="..." [value]="AspectFileBound.bound.left + ',' + AspectFileBound.bound.top + ',' + AspectFileBound.bound.width + ',' + AspectFileBound.bound.height" >
+        </div><!-- /input-group -->
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

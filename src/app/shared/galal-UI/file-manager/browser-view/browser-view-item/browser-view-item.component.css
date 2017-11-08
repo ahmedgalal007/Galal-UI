@@ -1,0 +1,19 @@
+
+
+.browser-item {
+  position: relative;
+}
+.browser-item > i { width: 80%; font-size: 80px; text-align: center; margin-top:10px}
+.browser-item.file {color: darkred}
+.browser-item.folder {color: #337ab7}
+.tree-file-ext{position: absolute; text-align: center; width: 100%; height: 100%; top:0; left:0;
+  color: white; font-size: 20%;
+  line-height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+  padding-top: 35%;
+}
+
+.browser-item-name { text-align: center; width:100%; }
+.browser-item > i:hover {cursor: pointer;}

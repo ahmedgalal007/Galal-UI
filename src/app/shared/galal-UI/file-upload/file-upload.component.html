@@ -1,0 +1,9 @@
+<div class="btn-group" role="group" aria-label="...">
+<label class="btn btn-primary">
+  Brows <input type="file" (change)="fileSelectionHandler(fileInput)"  multiple hidden #fileInput>
+</label>
+<button class="btn btn-danger " (click)="fileUploadHandler()"><i class="glyphicon glyphicon-upload"></i></button>
+</div>
+<blockquote [hidden]="!progressBarVisibility">{{uploadProgress}}</blockquote>
+
+<app-image-editor [files]="psdTemplates" (cropFiles)="cropFilesListener($event)" ></app-image-editor>
